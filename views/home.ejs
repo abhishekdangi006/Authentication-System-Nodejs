@@ -2,7 +2,8 @@
 
 <div id="home-container">
     <section id="message">
-
+        <h1>Message</h1>
+        <%- include('_chat_box'); -%>
     </section>
     <section id="feed-posts">
         <% if(locals.user){ %>
@@ -33,3 +34,18 @@
             <%}%>
     </section> 
 </div>
+
+<script src="js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self =  this;
+        let toggleLike = new toggleLike(self);
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user){ %>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>
+<% } %>

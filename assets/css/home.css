@@ -8,7 +8,8 @@
     height: 100 vh;
     background-image: linear-gradient(-23deg, #1096ef, #5511f3); }
     #home-container #message h1 {
-      color: #008080; }
+      color: white;
+      margin-left: 1vw; }
   #home-container #feed-posts {
     width: 50%;
     padding: 10px; }
