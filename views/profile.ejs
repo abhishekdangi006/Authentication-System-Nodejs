@@ -1,13 +1,7 @@
-<img src="<%= user.avatar %>"   alt="<%= user.name %>" width="100">
-
-<% if(user.id == profile_user.id){ %>
-    <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
-        <input type="text" name="name" placeholder="Your Name" value="<%=profile_user.name%>" required>
-        <input type="email" name="email" placeholder="Your Email" value="<%=profile_user.email%>" required>
-        <input type="file" name="avatar" placeholder="Profile Picture">
-        <button type="submit">Update</button>
-    </form>
-<%}else{%>
-    <p>Name: <%=profile_user.name%></p>
-    <p>Email: <%=profile_user.email%></p>
-<%}%>
+<link rel="stylesheet" href="/css/profile.css">
+<div id="profile">
+        <h1>Name: <%=profile_user.name%></h1>
+        <p>Email: <%=profile_user.email%></p>
+        <a href="/users/change_password"><button>Change Password</button></a>
+        
+</div>

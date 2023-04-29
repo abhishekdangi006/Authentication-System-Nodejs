@@ -3,6 +3,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 
 //authentication using password
 passport.use(new LocalStrategy({
@@ -11,13 +12,15 @@ passport.use(new LocalStrategy({
 },
     function(req,email,password,done){
         // find a user and establish identity
+        
         User.findOne({email: email},function(err,user){
             if(err){
                 req.flash('error', 'Error in finding the user');
                 return done(err);
             }
-
-            if(!user || user.password != password){
+            
+            console.log(user.password);
+            if(!user || !bcrypt.compareSync(password, user.password)){
                 req.flash('error', 'Invalid username/password');
                 return done(null, false);
             }

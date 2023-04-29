@@ -1,9 +1,11 @@
 const express = require('express');
+const env = require('./config/environment');
 const app = express();
 const port = 8000;
 const expressLayout = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 // used for session cookie
 const session = require('express-session');
@@ -18,16 +20,9 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
-// setup the chat server to be used with socket.io
-const chatServer = require('http').Server(app);
-const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(5000);
-console.log('chat server is listerning on port 5000');
-
-
 app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
+    src: path.join(__dirname, env.asset_path, 'scss'),
+    dest: path.join(__dirname, env.asset_path, 'css'),
     debug: true,
     outputStyle: 'extended',
     prefix: '/css'
@@ -46,7 +41,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(expressLayout);
 
 //using static files
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 
 // extracting styles and scripts from subpages to layout
 app.set('layout extractStyles', true);
@@ -60,7 +55,7 @@ app.set('views', './views');
 app.use(session({
     name: 'codial',
     //TODO change the secret before deployment in production mode
-    secret: 'blashsomething',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie:{

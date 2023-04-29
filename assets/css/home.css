@@ -1,68 +1,10 @@
-#home-container {
-  display: flex;
-  background-color: #fff; }
-  #home-container #message {
-    width: 25%;
-    padding: 10px;
-    border-right: 1px solid lightgray;
-    height: 100 vh;
-    background-image: linear-gradient(-23deg, #1096ef, #5511f3); }
-    #home-container #message h1 {
-      color: white;
-      margin-left: 1vw; }
-  #home-container #feed-posts {
-    width: 50%;
-    padding: 10px; }
-    #home-container #feed-posts h1 {
-      color: #008080; }
-    #home-container #feed-posts #new-post-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: white;
-      border-bottom: 1px solid lightgrey;
-      width: 100%; }
-      #home-container #feed-posts #new-post-container textarea {
-        margin: 1% 11% 0; }
-      #home-container #feed-posts #new-post-container button {
-        transition: all .5s ease;
-        width: 50%;
-        font-size: larger;
-        border-radius: 10px;
-        color: #008080;
-        font-weight: 600;
-        background-color: #fff;
-        border: 1px solid #008080;
-        margin: 0.5em 23% 1em; }
-      #home-container #feed-posts #new-post-container button:hover, #home-container #feed-posts #new-post-container button:focus {
-        background-color: #008080;
-        color: #fff; }
-    #home-container #feed-posts #post-list-container .user-name a {
-      color: black;
-      font-size: 1rem;
-      text-decoration: none; }
-    #home-container #feed-posts #post-list-container .user-name a:hover {
-      font-size: 1.1rem;
-      color: blue; }
-    #home-container #feed-posts #post-list-container .delete a {
-      color: black; }
-    #home-container #feed-posts #post-list-container .delete a:hover {
-      font-size: 1.1rem;
-      color: red; }
-  #home-container #user-friends {
-    width: 25%;
-    padding: 10px;
-    border-left: 1px solid lightgray;
-    height: 100 vh;
-    background-image: linear-gradient(-23deg, #1096ef, #5511f3); }
-    #home-container #user-friends h1 {
-      color: white;
-      margin-left: 1vw; }
-    #home-container #user-friends a {
-      margin-left: 1vw;
-      color: whitesmoke;
-      text-decoration: none;
-      font-size: 1rem; }
-    #home-container #user-friends a:hover {
-      color: yellow;
-      font-size: 1.1rem; }
+#home-container h1 {
+  text-align: center;
+  color: black; }
+
+#home-container p {
+  text-align: center;
+  color: black; }
+
+footer {
+  margin-top: 80vh; }
